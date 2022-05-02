@@ -8,17 +8,65 @@
     <title>Document Creation Server</title>
 </head>
 <body>
-    <div class="headingArea">
-        <h1>This is the start of the document</h1>
-    </div>
-    <div class="endArea">
+    <div id="headingArea"></div>
+    <div id="content"></div>
+    <div id="endArea"></div>
 
-    </div>
-    
+
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script>
+        // const mainContent = "/markdown/content.md"
+        // const heading = "/markdown/heading.md"
+
+        // async function run() {
+        //     await Promise.all([
+        //         fetch(mainContent),
+        //         fetch(heading)
+        //     ])
+        // let contentFile = await fetch(mainContent)
+        // let headingFile = await fetch(heading)
+
+        // let contentText = await contentFile.text()
+        // let headingText = await headingFile.text();
+
+        // document.getElementById('content').innerHTML = marked.parse(contentText);
+        // document.getElementById('headingArea').innerHTML = marked.parse(headingText);
+        // hljs.highlightAll();
+        // }
+        // run()
+
+        const getContent = fetch('/markdown/content.md');
+        const getHeading = fetch('/markdown/heading.md');
+
+        const contentTag = document.getElementById('content').innerHTML
+        const headingTag = document.getElementById('headingArea').innerHTML
+
+        const renderMarkdown = (markdown,id) => {
+            document.getElementById(id).innerHTML = marked.parse(markdown)
+        }
+
+        Promise.all([getContent,getHeading])
+            .then((values) => {
+                let returnObj = {}
+                return values.map((value,index) => {
+                    switch(index){
+                        case 0:
+                            return value.text().then((markdown) => renderMarkdown(markdown,'content'));
+                        break
+                        case 1:
+                            return value.text().then((markdown) => renderMarkdown(markdown,'headingArea'));
+                        break
+                        default: 
+                            return
+                    }
+                })
+            });
+    </script>
+    <script src="/reload/reload.js"></script>
     <!-- this is the code for live-reload to reload the browser page on refresh -->
     <script>
         document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] +
         ':35729/livereload.js?snipver=1"></' + 'script>')
-      </script>
+    </script>
 </body>
 </html>

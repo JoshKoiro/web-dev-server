@@ -17,22 +17,7 @@ server.use(require('connect-livereload')({
 // Set up live reload server
 const livereload = require('livereload');
 const liveReloadServer = livereload.createServer();
-liveReloadServer.watch(publicDir);
-
-// Set up the markdown converter
-const md = require('markdown-it')({
-    html:         true,        // Enable HTML tags in source
-    xhtmlOut:     false,        // Use '/' to close single tags (<br />).
-                              // This is only for full CommonMark compatibility.
-    breaks:       false,        // Convert '\n' in paragraphs into <br>
-    langPrefix:   'language-',  // CSS language prefix for fenced blocks. Can be
-                              // useful for external highlighters.
-    linkify:      true,        // Autoconvert URL-like text to links
-
-  // Enable some language-neutral replacement + quotes beautification
-  // For the full list of replacements, see https://github.com/markdown-it/markdown-it/blob/master/lib/rules_core/replacements.js
-    typographer:  true,
-})
+liveReloadServer.watch(publicDir, publicDir + '/css', publicDir + '/markdown', publicDir + '/images');
 
 server.get('/', function(req,res,next) {
     res.sendFile('./public/index.html')
