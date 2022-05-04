@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
-    "watch": "nodemon sever.js --ext js,md"
+    "watch": "nodemon sever.js --ext js,md,css"
   },
   "keywords": [],
   "author": "",
@@ -18,7 +18,6 @@
     "markdown-it": "^13.0.0",
     "marked": "^4.0.15",
     "nodemon": "^2.0.16",
-    "path": "^0.12.7",
-    "pug": "^3.0.2"
+    "path": "^0.12.7"
   }
 }

@@ -1,1 +1,22 @@
-This is some test text to see if it comes in again
+The biggest difference, and conceptual shift, is that printed documents refer to a page model that is of a fixed size. Whereas on the web we are constantly reminded that we have no idea of the size of the viewport, in print the fixed size of each page has a bearing on everything that we do. Due to this fixed page size, we have to consider our document as a collection of pages, paged media, rather than the continuous media that is a web page.
+
+Paged media introduces concepts that make no sense on the web. For example, you need to be able to generate page numbers, put chapter titles in margins, break content appropriately in order that figures don’t become disassociated from their captions. You might need to create cross-references and footnotes, indexes and tables of content from your document. You could import the document into a desktop publishing package and create all of this by hand, however, the work would then need redoing the next time you update the copy. This is where CSS comes in, whose specifications are designed for use in creating paged media.
+
+Because the specifications are designed for paged media, we won’t be considering browser support in this article — it wouldn’t make a lot of sense. Later on, we’ll look at a user agent designed to turn your HTML and CSS into a PDF using these specifications.
+
+## The Specifications
+Much of the CSS you already know will be useful for formatting for print. Specifically for print, we have the “CSS Paged Media Module” and the “CSS Generated Content for Paged Media Module” specifications. Let’s look at how these work.
+
+## THE @PAGE RULE
+The @page rule lets you specify various aspects of a page box. For example, you will want to specify the dimensions of your pages. The rule below specifies a default page size of 5.5 by 8.5 inches. If you intend to print a book, perhaps by a print-on-demand service, then finding out the sizes you can use is important.
+
+If you mention printing with CSS to many people who work on the web, print style sheets are the use that comes to mind. We are all well used to creating a style sheet that is called upon when a web document is printed. These style sheets ensure that the print version is legible and that we don’t cause a user to print out huge images. However, CSS is also being used to format books, catalogs and brochures — content that may never have been designed to be a web page at all.
+
+In this article, we’ll take a look at the CSS modules that have been created not for use in web browsers, but to deal with printed and paged media. I’ll explain how the selectors, properties and values that they introduce work. I’ll finish up with a working example that you can use as a starting point for your own experiments. For that example, we’ll need a user agent that supports this specialized CSS. I’ll be using Prince, which is a commercial product. However, Prince has a free version that can be used for non-commercial use, making it a good tool to try out these examples.
+
+## The Differences Between CSS For The Web And For Print CSS
+The biggest difference, and conceptual shift, is that printed documents refer to a page model that is of a fixed size. Whereas on the web we are constantly reminded that we have no idea of the size of the viewport, in print the fixed size of each page has a bearing on everything that we do. Due to this fixed page size, we have to consider our document as a collection of pages, paged media, rather than the continuous media that is a web page.
+
+Paged media introduces concepts that make no sense on the web. For example, you need to be able to generate page numbers, put chapter titles in margins, break content appropriately in order that figures don’t become disassociated from their captions. You might need to create cross-references and footnotes, indexes and tables of content from your document. You could import the document into a desktop publishing package and create all of this by hand, however, the work would then need redoing the next time you update the copy. This is where CSS comes in, whose specifications are designed for use in creating paged media.
+
+Because the specifications are designed for paged media, we won’t be considering browser support in this article — it wouldn’t make a lot of sense. Later on, we’ll look at a user agent designed to turn your HTML and CSS into a PDF using these specifications.

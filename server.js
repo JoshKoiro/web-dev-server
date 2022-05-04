@@ -4,6 +4,9 @@ const { appendFile } = require('fs');
 const path = require('path');
 const server = express();
 
+//Package for using Prince XML
+// const Prince = require('prince');
+
 //Set up express server
 const port = 5000;
 const publicDir = path.join(__dirname,'public');
