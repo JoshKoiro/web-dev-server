@@ -8,9 +8,7 @@ var _require = require('fs'),
 
 var path = require('path');
 
-var server = express(); //Package for using Prince XML
-// const Prince = require('prince');
-//Set up express server
+var server = express(); //Set up express server
 
 var port = 5000;
 var publicDir = path.join(__dirname, 'public');
